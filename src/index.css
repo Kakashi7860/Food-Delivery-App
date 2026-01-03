@@ -1,0 +1,48 @@
+:root {
+  /* Premium Color Palette */
+  --primary: #FF4757; /* Vibrant Red/Pink */
+  --primary-hover: #FF6B81;
+  --secondary: #2F3542; /* Dark Slate */
+  --accent: #7BED9F; /* Soft Green */
+  --background: #F1F2F6; /* Light Gray */
+  --surface: #FFFFFF;
+  --text-main: #2F3542;
+  --text-muted: #747D8C;
+  --border: #DFE4EA;
+  
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
