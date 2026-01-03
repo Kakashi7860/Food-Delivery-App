@@ -2,15 +2,14 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
-    box-shadow: var(--shadow-sm);
 }
 
 .content {
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
@@ -20,9 +19,9 @@
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--text-main);
-    letter-spacing: -0.5px;
+    text-decoration: none;
 }
 
 .logoAccent {
@@ -37,6 +36,7 @@
 .link {
     font-weight: 500;
     color: var(--text-muted);
+    text-decoration: none;
     transition: color 0.2s;
 }
 
@@ -52,16 +52,19 @@
 }
 
 .iconBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
     color: var(--text-main);
     padding: 0.5rem;
     border-radius: 50%;
     transition: background-color 0.2s;
+    display: flex;
     position: relative;
 }
 
 .iconBtn:hover {
-    background-color: var(--background);
-    color: var(--primary);
+    background-color: #F1F5F9;
 }
 
 .badge {
@@ -71,18 +74,85 @@
     background-color: var(--primary);
     color: white;
     font-size: 0.75rem;
+    font-weight: 700;
     width: 18px;
     height: 18px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    border: 2px solid white;
 }
 
 .menuBtn {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.loginBtn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.loginBtn:hover {
+    background-color: var(--primary-hover);
+}
+
+.profileWrapper {
+    position: relative;
+}
+
+.profileDropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: white;
+    box-shadow: var(--shadow-md);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 200px;
+    border: 1px solid var(--border);
+}
+
+.profileHeader {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.userName {
+    font-weight: 700;
     color: var(--text-main);
+}
+
+.userEmail {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.logoutBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #DC2626;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+.logoutBtn:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
