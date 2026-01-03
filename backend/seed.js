@@ -40,7 +40,7 @@ const seedData = async () => {
                 address: "45 Food Court, Downtown",
                 cuisine: "Burgers, Fast Food",
                 phone: "555-0101",
-                image: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=80", // Burger place image
+                image: "/logos/burger-king.png", // Burger place image
                 items: [
                     { name: "Whopper", price: 5.99, description: "Flame-grilled beef patty, topped with tomatoes, cut lettuce, mayo, ketchup, pickles, and white onions on a soft sesame seed bun.", category: "Burger", isVeg: false, image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80", calories: 660, protein: "28g", tags: ["Best Seller", "Signature"] },
                     { name: "Chicken Royale", price: 6.49, description: "Crispy chicken breast with lettuce and mayo on a sesame seed bun.", category: "Burger", isVeg: false, image: "https://images.unsplash.com/photo-1615297928064-24977384d0f9?w=800&q=80", calories: 600, protein: "24g", tags: ["Crispy", "Chicken"] },
@@ -57,7 +57,7 @@ const seedData = async () => {
                 address: "123 Pizza Lane",
                 cuisine: "Pizza, Italian",
                 phone: "555-0102",
-                image: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=800&q=80", // Pizza place image
+                image: "/logos/pizza-hut.png", // Pizza place image
                 items: [
                     { name: "Pepperoni Feast", price: 14.99, description: "Pepperoni, pepperoni and more pepperoni.", category: "Pizza", isVeg: false, image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&q=80", calories: 280, protein: "12g", tags: ["Popular", "Spicy"] },
                     { name: "Veggie Supreme", price: 13.99, description: "Mushrooms, mixed peppers, red onions and sweetcorn.", category: "Pizza", isVeg: true, image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80", calories: 250, protein: "10g", tags: ["Veg Loaded"] },
@@ -73,6 +73,7 @@ const seedData = async () => {
                 address: "88 Ocean Drive",
                 cuisine: "Japanese, Sushi",
                 phone: "555-0103",
+                image: "/logos/sushi-master.png",
                 items: [
                     { name: "Salmon Nigiri Box", price: 12.99, description: "6 pieces of fresh salmon nigiri.", category: "Sushi", isVeg: false, image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80", calories: 350, protein: "22g", tags: ["Fresh", "Raw"] },
                     { name: "California Roll", price: 8.99, description: "Crab, avocado, and cucumber rolled inside-out.", category: "Sushi", isVeg: false, image: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=800&q=80", calories: 320, protein: "12g", tags: ["Popular"] },
@@ -88,7 +89,7 @@ const seedData = async () => {
                 address: "99 Crispy Rd",
                 cuisine: "Chicken, Fast Food",
                 phone: "555-0104",
-                image: "https://images.unsplash.com/photo-1513639776629-7b611d256339?w=800&q=80", // Fried chicken place image
+                image: "/logos/kfc.png", // Fried chicken place image
                 items: [
                     { name: "Fried Chicken Bucket", price: 18.99, description: "10 pieces of our signature original recipe chicken.", category: "Fast Food", isVeg: false, image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&q=80", calories: 2500, protein: "180g", tags: ["Shareable", "Fried"] },
                     { name: "Zinger Burger", price: 6.99, description: "Spicy chicken fillet burger.", category: "Burger", isVeg: false, image: "https://images.unsplash.com/photo-1619250914856-12c8b822d645?w=800&q=80", calories: 550, protein: "24g", tags: ["Spicy"] },
@@ -103,7 +104,7 @@ const seedData = async () => {
                 address: "21 Baker St",
                 cuisine: "Desserts, Bakery",
                 phone: "555-0105",
-                image: "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&q=80", // Bakery image
+                image: "/logos/sweet-cravings.png", // Bakery image
                 items: [
                     { name: "Chocolate Cake Slice", price: 4.99, description: "Rich and moist chocolate cake with ganache.", category: "Dessert", isVeg: true, image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80", calories: 450, protein: "6g", tags: ["Sweet", "Rich"] },
                     { name: "Strawberry Cheesecake", price: 5.99, description: "Creamy cheesecake with fresh strawberries.", category: "Dessert", isVeg: true, image: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=800&q=80", calories: 400, protein: "8g", tags: ["Fruity"] },
