@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import styles from './Auth.module.css';
 
 const SignupPage = () => {
+    const [searchParams] = useSearchParams();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isRestaurant, setIsRestaurant] = useState(searchParams.get('role') === 'restaurant');
     const [error, setError] = useState('');
     const { register } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const result = await register(name, email, password);
+        const role = isRestaurant ? 'restaurant' : 'customer';
+        const result = await register(name, email, password, role);
         if (result.success) {
-            navigate('/');
+            if (role === 'restaurant') {
+                navigate('/restaurant/dashboard');
+            } else {
+                navigate('/');
+            }
         } else {
             setError(result.message);
         }
@@ -24,8 +31,12 @@ const SignupPage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                <h1 className={styles.title}>Create Account</h1>
-                <p className={styles.subtitle}>Sign up to get started</p>
+                <h1 className={styles.title}>
+                    {isRestaurant ? 'Partner Registration' : 'Create Account'}
+                </h1>
+                <p className={styles.subtitle}>
+                    {isRestaurant ? 'Grow your business with us' : 'Sign up to get started'}
+                </p>
 
                 {error && <div className={styles.error}>{error}</div>}
 
@@ -61,6 +72,16 @@ const SignupPage = () => {
                             required
                             placeholder="Create a password"
                         />
+                    </div>
+
+                    <div className={styles.groupCheckbox}>
+                        <input
+                            type="checkbox"
+                            id="isRestaurant"
+                            checked={isRestaurant}
+                            onChange={(e) => setIsRestaurant(e.target.checked)}
+                        />
+                        <label htmlFor="isRestaurant">Register as Restaurant Partner</label>
                     </div>
 
                     <button type="submit" className={styles.btn}>Sign Up</button>

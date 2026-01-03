@@ -98,3 +98,23 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+.groupCheckbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.groupCheckbox input {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.groupCheckbox label {
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--text-main);
+}

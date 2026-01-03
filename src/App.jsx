@@ -9,6 +9,8 @@ import ProductDetailsPage from './features/product/ProductDetailsPage';
 import CartPage from './features/cart/CartPage';
 import LoginPage from './features/auth/pages/LoginPage';
 import SignupPage from './features/auth/pages/SignupPage';
+import RestaurantDashboard from './features/restaurant/RestaurantDashboard';
+import AddEditProduct from './features/restaurant/AddEditProduct';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/restaurant/dashboard" element={<RestaurantDashboard />} />
+              <Route path="/restaurant/add-item" element={<AddEditProduct />} />
               {/* Add more routes as we build features */}
             </Routes>
           </MainLayout>

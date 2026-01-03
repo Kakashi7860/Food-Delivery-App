@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Search, Menu, User, LogOut } from 'lucide-react';
+import { ShoppingBag, Search, Menu, User, LogOut, Store } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -54,7 +54,25 @@ const Navbar = () => {
                             )}
                         </div>
                     ) : (
-                        <Link to="/login" className={styles.loginBtn}>Login</Link>
+                        <div className={styles.authWrapper}>
+                            <button className={styles.loginBtn}>Login / Sign Up</button>
+                            <div className={styles.authDropdown}>
+                                <Link to="/login" className={styles.authItem}>
+                                    <div className={styles.authIcon}><User size={18} /></div>
+                                    <div>
+                                        <span className={styles.authTitle}>Customer</span>
+                                        <span className={styles.authDesc}>Order food & enjoy</span>
+                                    </div>
+                                </Link>
+                                <Link to="/signup?role=restaurant" className={styles.authItem}>
+                                    <div className={styles.authIcon}><Store size={18} /></div>
+                                    <div>
+                                        <span className={styles.authTitle}>Restaurant</span>
+                                        <span className={styles.authDesc}>Manage your menu</span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
                     )}
 
                     <button className={styles.menuBtn} aria-label="Menu">

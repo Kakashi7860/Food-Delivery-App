@@ -1,0 +1,121 @@
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.addBtn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.addBtn:hover {
+    background-color: var(--primary-hover);
+}
+
+.content h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.cardBody {
+    padding: 1rem;
+}
+
+.itemName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.price {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.actionBtn {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #F3F4F6;
+    color: var(--text-main);
+    transition: all 0.2s;
+}
+
+.actionBtn:hover {
+    background-color: #E5E7EB;
+}
+
+.delete {
+    color: #DC2626;
+    background-color: #FEF2F2;
+}
+
+.delete:hover {
+    background-color: #FEE2E2;
+}
+
+.empty {
+    text-align: center;
+    padding: 4rem;
+    background-color: #F9FAFB;
+    border-radius: 1rem;
+    color: var(--text-muted);
+}
