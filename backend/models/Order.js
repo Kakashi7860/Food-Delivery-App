@@ -41,6 +41,12 @@ const orderSchema = mongoose.Schema({
         enum: ['Placed', 'Preparing', 'Delivered'],
         default: 'Placed',
     },
+    paymentResult: {
+        id: String,
+        status: String,
+        update_time: String,
+        email_address: String,
+    },
 }, {
     timestamps: true,
 });
