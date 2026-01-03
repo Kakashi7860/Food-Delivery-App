@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
             if (response.ok) {
                 localStorage.setItem('userInfo', JSON.stringify(data));
                 setUser(data);
-                return { success: true };
+                return { success: true, role: data.role };
             } else {
                 return { success: false, message: data.message };
             }

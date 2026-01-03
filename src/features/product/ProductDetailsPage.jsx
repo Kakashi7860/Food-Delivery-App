@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ProductGallery from './components/ProductGallery';
 import ProductInfo from './components/ProductInfo';
 import ProductTabs from './components/ProductTabs';
-import { menuItems } from '../home/data/mockData';
 import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
     const { id } = useParams();
-    const product = menuItems.find(item => item.id === parseInt(id));
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                // Check if it's a mock ID (number) or real MongoDB ID (string)
+                // Actually, let's just try fetching from backend regardless. 
+                // If it fails (404/500), we could fallback to mock, but better to stick to real data now.
+                const response = await fetch(`http://127.0.0.1:5001/api/products/${id}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    setProduct(data);
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Failed to fetch product", error);
+                setLoading(false);
+            }
+        };
+        fetchProduct();
+    }, [id]);
+
+    if (loading) return <div style={{ padding: '2rem', textAlign: 'center' }}>Loading...</div>;
 
     if (!product) {
         return (

@@ -18,19 +18,30 @@ const Navbar = () => {
                 </Link>
 
                 <div className={styles.links}>
-                    <Link to="/" className={`${styles.link} ${styles.active}`}>Home</Link>
-                    <Link to="/menu" className={styles.link}>Menu</Link>
-                    <Link to="/about" className={styles.link}>About</Link>
+                    {user?.role === 'restaurant' ? (
+                        <>
+                            <Link to="/restaurant/dashboard" className={`${styles.link} ${styles.active}`}>Dashboard</Link>
+                            <Link to="/restaurant/add-item" className={styles.link}>Add Item</Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/" className={`${styles.link} ${styles.active}`}>Home</Link>
+                            <Link to="/menu" className={styles.link}>Menu</Link>
+                            <Link to="/about" className={styles.link}>About</Link>
+                        </>
+                    )}
                 </div>
 
                 <div className={styles.actions}>
                     <button className={styles.iconBtn} aria-label="Search">
                         <Search size={20} />
                     </button>
-                    <Link to="/cart" className={styles.iconBtn} aria-label="Cart">
-                        <ShoppingBag size={20} />
-                        {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
-                    </Link>
+                    {user?.role !== 'restaurant' && (
+                        <Link to="/cart" className={styles.iconBtn} aria-label="Cart">
+                            <ShoppingBag size={20} />
+                            {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
+                        </Link>
+                    )}
 
                     {user ? (
                         <div className={styles.profileWrapper}>

@@ -9,7 +9,7 @@ const MenuItemCard = ({ item }) => {
 
     return (
         <div className={styles.card}>
-            <Link to={`/product/${item.id}`} className={styles.imageWrapper}>
+            <Link to={`/product/${item._id || item.id}`} className={styles.imageWrapper}>
                 <img src={item.image} alt={item.name} className={styles.image} />
                 <span className={`${styles.vegBadge} ${item.isVeg ? styles.veg : styles.nonVeg}`}>
                     {item.isVeg ? 'Veg' : 'Non-Veg'}
@@ -19,7 +19,7 @@ const MenuItemCard = ({ item }) => {
             <div className={styles.content}>
                 <div className={styles.header}>
                     <h3 className={styles.name}>
-                        <Link to={`/product/${item.id}`} className={styles.link}>
+                        <Link to={`/product/${item._id || item.id}`} className={styles.link}>
                             {item.name}
                         </Link>
                     </h3>
