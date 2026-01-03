@@ -1,0 +1,37 @@
+.page {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.backBtn:hover {
+    color: var(--primary);
+}
+
+.topSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.notFound {
+    text-align: center;
+    padding: 4rem;
+}
+
+@media (max-width: 968px) {
+    .topSection {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

@@ -67,6 +67,15 @@
     line-height: 1.3;
 }
 
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: var(--primary);
+}
+
 .rating {
     display: flex;
     align-items: center;

@@ -1,0 +1,117 @@
+.container {
+    margin-top: 3rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+}
+
+.tab {
+    flex: 1;
+    padding: 1.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    background-color: #FAFAFA;
+}
+
+.tab:hover {
+    background-color: white;
+    color: var(--text-main);
+}
+
+.active {
+    background-color: white;
+    color: var(--text-main);
+    border-bottom: 2px solid #8E244D;
+    /* Burgundy */
+}
+
+.content {
+    padding: 2rem;
+}
+
+.reviewsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.reviewCard {
+    background-color: #FAFAFA;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+.reviewer {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #EEE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+.reviewerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewerName {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--text-main);
+}
+
+.reviewRating {
+    display: flex;
+    gap: 2px;
+}
+
+.reviewText {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.reviewDate {
+    font-size: 0.75rem;
+    color: #AAA;
+}
+
+.nutritionGrid {
+    display: flex;
+    gap: 3rem;
+}
+
+.nutriItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.nutriLabel {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.nutriValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+}

@@ -1,0 +1,54 @@
+.summary {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    height: fit-content;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.value {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border);
+    margin: 1.5rem 0;
+}
+
+.total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+}
+
+.checkoutBtn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.checkoutBtn:hover {
+    background-color: var(--primary-hover);
+}
