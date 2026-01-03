@@ -1,0 +1,50 @@
+.filterContainer {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.filterContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+    background-color: white;
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.filterBtn:hover {
+    background-color: var(--background);
+    color: var(--text-main);
+}
+
+.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.active:hover {
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
