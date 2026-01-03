@@ -33,18 +33,43 @@
     resize: vertical;
 }
 
+.smallTextarea {
+    height: 80px;
+    margin-bottom: 2rem;
+}
+
 .payment {
     margin-bottom: 2rem;
+}
+
+.methodsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .method {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     padding: 1rem;
-    border: 1px solid var(--primary);
-    background-color: #FFF2F2;
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.method:hover {
+    background-color: #F8F9FA;
+}
+
+.activeMethod {
+    border-color: var(--primary);
+    background-color: #FFF5F5;
+}
+
+.method span {
+    font-weight: 500;
 }
 
 .placeOrderBtn {

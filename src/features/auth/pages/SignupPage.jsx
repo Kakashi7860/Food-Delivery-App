@@ -16,7 +16,12 @@ const SignupPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const role = isRestaurant ? 'restaurant' : 'customer';
-        const result = await register(name, email, password, role);
+
+        const address = e.target.address?.value;
+        const cuisine = e.target.cuisine?.value;
+        const phone = e.target.phone?.value;
+
+        const result = await register(name, email, password, role, address, cuisine, phone);
         if (result.success) {
             if (role === 'restaurant') {
                 navigate('/restaurant/dashboard');
@@ -42,13 +47,13 @@ const SignupPage = () => {
 
                 <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.group}>
-                        <label>Full Name</label>
+                        <label>{isRestaurant ? 'Restaurant Name' : 'Full Name'}</label>
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
-                            placeholder="John Doe"
+                            placeholder={isRestaurant ? "e.g., Pizza Palace" : "John Doe"}
                         />
                     </div>
 
@@ -74,6 +79,38 @@ const SignupPage = () => {
                         />
                     </div>
 
+                    {isRestaurant && (
+                        <>
+                            <div className={styles.group}>
+                                <label>Restaurant Address</label>
+                                <input
+                                    type="text"
+                                    name="address"
+                                    required
+                                    placeholder="e.g., 123 Food Street, Downtown"
+                                />
+                            </div>
+                            <div className={styles.group}>
+                                <label>Cuisine Type</label>
+                                <input
+                                    type="text"
+                                    name="cuisine"
+                                    required
+                                    placeholder="e.g., Italian, Fast Food"
+                                />
+                            </div>
+                            <div className={styles.group}>
+                                <label>Phone Number</label>
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    required
+                                    placeholder="e.g., +1 234 567 890"
+                                />
+                            </div>
+                        </>
+                    )}
+
                     <div className={styles.groupCheckbox}>
                         <input
                             type="checkbox"
@@ -84,7 +121,9 @@ const SignupPage = () => {
                         <label htmlFor="isRestaurant">Register as Restaurant Partner</label>
                     </div>
 
-                    <button type="submit" className={styles.btn}>Sign Up</button>
+                    <button type="submit" className={styles.btn}>
+                        {isRestaurant ? 'Register Restaurant' : 'Sign Up'}
+                    </button>
                 </form>
 
                 <p className={styles.footer}>

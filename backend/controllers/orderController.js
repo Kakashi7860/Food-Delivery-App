@@ -5,7 +5,7 @@ const Order = require('../models/Order');
 // @access  Private
 const createOrder = async (req, res) => {
     try {
-        const { items, totalAmount, address } = req.body;
+        const { items, totalAmount, address, paymentMethod, instructions } = req.body;
 
         if (items && items.length === 0) {
             return res.status(400).json({ message: 'No order items' });
@@ -16,6 +16,8 @@ const createOrder = async (req, res) => {
             items,
             totalAmount,
             address,
+            paymentMethod,
+            instructions,
             status: 'Placed', // Initial status
         });
 

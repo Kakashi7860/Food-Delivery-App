@@ -1,0 +1,28 @@
+.btn {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    color: #ccc;
+    z-index: 10;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.active {
+    color: #ff4b4b;
+}
+
+.btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}

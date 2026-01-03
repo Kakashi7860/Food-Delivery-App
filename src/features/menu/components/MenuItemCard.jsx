@@ -1,7 +1,7 @@
-import React from 'react';
 import { Plus, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../../context/CartContext';
+import FavoriteButton from '../../../components/FavoriteButton';
 import styles from './MenuItemCard.module.css';
 
 const MenuItemCard = ({ item }) => {
@@ -9,12 +9,17 @@ const MenuItemCard = ({ item }) => {
 
     return (
         <div className={styles.card}>
-            <Link to={`/product/${item._id || item.id}`} className={styles.imageWrapper}>
-                <img src={item.image} alt={item.name} className={styles.image} />
+            <div className={styles.imageContainer}>
+                <Link to={`/product/${item._id || item.id}`} className={styles.imageWrapper}>
+                    <img src={item.image} alt={item.name} className={styles.image} />
+                </Link>
+                <div className={styles.favBtn}>
+                    <FavoriteButton id={item._id || item.id} type="product" />
+                </div>
                 <span className={`${styles.vegBadge} ${item.isVeg ? styles.veg : styles.nonVeg}`}>
                     {item.isVeg ? 'Veg' : 'Non-Veg'}
                 </span>
-            </Link>
+            </div>
 
             <div className={styles.content}>
                 <div className={styles.header}>

@@ -11,6 +11,9 @@ import LoginPage from './features/auth/pages/LoginPage';
 import SignupPage from './features/auth/pages/SignupPage';
 import RestaurantDashboard from './features/restaurant/RestaurantDashboard';
 import AddEditProduct from './features/restaurant/AddEditProduct';
+import RestaurantPublicPage from './features/restaurant/RestaurantPublicPage';
+import ProfilePage from './features/auth/pages/ProfilePage';
+import FavoritesPage from './features/user/FavoritesPage';
 import CheckoutPage from './features/order/CheckoutPage';
 import OrderTrackingPage from './features/order/OrderTrackingPage';
 import MyOrdersPage from './features/order/MyOrdersPage';
@@ -30,9 +33,12 @@ function App() {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/restaurant/dashboard" element={<RestaurantDashboard />} />
               <Route path="/restaurant/add-item" element={<AddEditProduct />} />
+              <Route path="/restaurants/:id" element={<RestaurantPublicPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/order-tracking/:id" element={<OrderTrackingPage />} />
               <Route path="/my-orders" element={<MyOrdersPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
               {/* Add more routes as we build features */}
             </Routes>
           </MainLayout>

@@ -41,11 +41,11 @@ const ProductTabs = ({ nutrition, reviews }) => {
                         <div className={styles.nutritionGrid}>
                             <div className={styles.nutriItem}>
                                 <span className={styles.nutriLabel}>Calories</span>
-                                <span className={styles.nutriValue}>{nutrition.calories}</span>
+                                <span className={styles.nutriValue}>{nutrition.calories || 'N/A'}</span>
                             </div>
                             <div className={styles.nutriItem}>
                                 <span className={styles.nutriLabel}>Protein</span>
-                                <span className={styles.nutriValue}>{nutrition.protein}</span>
+                                <span className={styles.nutriValue}>{nutrition.protein || 'N/A'}</span>
                             </div>
                         </div>
                     </div>

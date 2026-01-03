@@ -51,7 +51,7 @@ const ProductDetailsPage = () => {
 
             <div className={styles.topSection}>
                 <div className={styles.galleryCol}>
-                    <ProductGallery images={product.images || [product.image]} />
+                    <ProductGallery images={product.images || (product.image ? [product.image] : [])} />
                 </div>
                 <div className={styles.infoCol}>
                     <ProductInfo product={product} />

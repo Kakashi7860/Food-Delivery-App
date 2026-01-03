@@ -12,7 +12,7 @@ const generateToken = (id) => {
 // @route   POST /api/auth/register
 // @access  Public
 exports.registerUser = async (req, res) => {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role, address, cuisine, phone } = req.body;
 
     try {
         const userExists = await User.findOne({ email });
@@ -26,6 +26,9 @@ exports.registerUser = async (req, res) => {
             email,
             password,
             role: role || 'customer',
+            address,
+            cuisine,
+            phone,
         });
 
         if (user) {
@@ -63,6 +66,71 @@ exports.loginUser = async (req, res) => {
             });
         } else {
             res.status(401).json({ message: 'Invalid email or password' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc    Get user profile
+// @route   GET /api/auth/profile
+// @access  Private
+exports.getUserProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
+        if (user) {
+            res.json({
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                address: user.address,
+                phone: user.phone,
+                cuisine: user.cuisine,
+            });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc    Update user profile
+// @route   PUT /api/auth/profile
+// @access  Private
+exports.updateUserProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
+
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.email = req.body.email || user.email;
+            user.address = req.body.address || user.address;
+            user.phone = req.body.phone || user.phone;
+
+            if (user.role === 'restaurant') {
+                user.cuisine = req.body.cuisine || user.cuisine;
+            }
+
+            if (req.body.password) {
+                user.password = req.body.password;
+            }
+
+            const updatedUser = await user.save();
+
+            res.json({
+                _id: updatedUser._id,
+                name: updatedUser.name,
+                email: updatedUser.email,
+                role: updatedUser.role,
+                address: updatedUser.address,
+                phone: updatedUser.phone,
+                cuisine: updatedUser.cuisine,
+                token: generateToken(updatedUser._id),
+            });
+        } else {
+            res.status(404).json({ message: 'User not found' });
         }
     } catch (error) {
         res.status(500).json({ message: error.message });

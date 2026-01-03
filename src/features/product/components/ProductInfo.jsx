@@ -38,7 +38,7 @@ const ProductInfo = ({ product }) => {
                 ) : (
                     <span className={`${styles.badge} ${styles.nonVeg}`}>Non Veg</span>
                 )}
-                {product.tags.map(tag => (
+                {product.tags && product.tags.map(tag => (
                     <span key={tag} className={styles.tag}>{tag}</span>
                 ))}
             </div>

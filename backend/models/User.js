@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
         enum: ['customer', 'restaurant'],
         default: 'customer',
     },
+    address: { type: String },
+    cuisine: { type: String },
+    phone: { type: String },
+    image: { type: String },
     date: {
         type: Date,
         default: Date.now,

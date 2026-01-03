@@ -40,14 +40,14 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const register = async (name, email, password, role) => {
+    const register = async (name, email, password, role, address, cuisine, phone) => {
         try {
             const response = await fetch('http://127.0.0.1:5001/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, password, role }),
+                body: JSON.stringify({ name, email, password, role, address, cuisine, phone }),
             });
 
             const data = await response.json();

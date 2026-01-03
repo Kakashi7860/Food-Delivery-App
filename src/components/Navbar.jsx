@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Search, Menu, User, LogOut, Store } from 'lucide-react';
+import { ShoppingBag, Search, Menu, User, LogOut, Store, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import SearchOverlay from '../features/search/SearchOverlay';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
     const { cartCount } = useCart();
     const { user, logout } = useAuth();
     const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
 
     return (
         <nav className={styles.navbar}>
@@ -33,9 +35,14 @@ const Navbar = () => {
                 </div>
 
                 <div className={styles.actions}>
-                    <button className={styles.iconBtn} aria-label="Search">
+                    <button
+                        className={styles.iconBtn}
+                        aria-label="Search"
+                        onClick={() => setShowSearch(true)}
+                    >
                         <Search size={20} />
                     </button>
+                    {showSearch && <SearchOverlay onClose={() => setShowSearch(false)} />}
                     {user?.role !== 'restaurant' && (
                         <Link to="/cart" className={styles.iconBtn} aria-label="Cart">
                             <ShoppingBag size={20} />
@@ -58,6 +65,12 @@ const Navbar = () => {
                                         <span className={styles.userName}>{user.name}</span>
                                         <span className={styles.userEmail}>{user.email}</span>
                                     </div>
+                                    <Link to="/profile" className={styles.dropdownLink} onClick={() => setShowProfileMenu(false)}>
+                                        <User size={16} /> My Profile
+                                    </Link>
+                                    <Link to="/favorites" className={styles.dropdownLink} onClick={() => setShowProfileMenu(false)}>
+                                        <Heart size={16} /> My Favorites
+                                    </Link>
                                     <Link to="/my-orders" className={styles.dropdownLink} onClick={() => setShowProfileMenu(false)}>
                                         <ShoppingBag size={16} /> My Orders
                                     </Link>
