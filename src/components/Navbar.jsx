@@ -58,6 +58,9 @@ const Navbar = () => {
                                         <span className={styles.userName}>{user.name}</span>
                                         <span className={styles.userEmail}>{user.email}</span>
                                     </div>
+                                    <Link to="/my-orders" className={styles.dropdownLink} onClick={() => setShowProfileMenu(false)}>
+                                        <ShoppingBag size={16} /> My Orders
+                                    </Link>
                                     <button onClick={logout} className={styles.logoutBtn}>
                                         <LogOut size={16} /> Logout
                                     </button>

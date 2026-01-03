@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../../../context/CartContext';
 import styles from './CartSummary.module.css';
 
@@ -28,7 +29,7 @@ const CartSummary = () => {
                 <span>${total.toFixed(2)}</span>
             </div>
 
-            <button className={styles.checkoutBtn}>Proceed to Checkout</button>
+            <Link to="/checkout" className={styles.checkoutBtn}>Proceed to Checkout</Link>
         </div>
     );
 };
